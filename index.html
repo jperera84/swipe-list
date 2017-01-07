@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Swipe List</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Jose R. Perera">
+    <meta name="theme-color" content="#FF00FF">
+    <link rel="import" href="list-item.html">
+    <style>
+      html, body{
+        padding: 0;
+        margin: 0;
+        background: #FAFAFA;
+      }
+
+      *{
+        box-sizing: border-box;
+      }
+
+      .item-container{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 16px;
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="item-container">
+      <list-item></list-item>
+      <list-item></list-item>
+      <list-item></list-item>
+      <list-item></list-item>
+    </div>
+  </body>
+</html>
