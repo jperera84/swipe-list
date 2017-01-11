@@ -86,7 +86,8 @@ customElements.define('list-item', class extends HTMLElement {
   onEnd(e){
     if(!this.target)
       return;
-    if((this.target.offsetWidth - Math.abs(this.screenX)) > (this.target.offsetWidth - 144)){
+    let screenX = Math.min(0, this.currentX - this.startX);
+    if((this.target.offsetWidth - Math.abs(screenX)) > (this.target.offsetWidth - 144)){
       this.causeClick = true;
       this.updateBecauseOfClick();
     }
@@ -98,10 +99,9 @@ customElements.define('list-item', class extends HTMLElement {
     if(!this.target)
       return;
     if(this.dragginCard){
-      let screenX = this.currentX - this.startX | 0;
-      if(screenX < 0 && (this.target.offsetWidth - Math.abs(screenX)) > (this.target.offsetWidth - 160)){
-        this.screenX = this.currentX - this.startX;
-        this.target.style.transform = `translateX(${this.screenX}px)`;
+      let screenX = Math.min(0, this.currentX - this.startX);
+      if((this.target.offsetWidth - Math.abs(screenX)) > (this.target.offsetWidth - 160)){
+        this.target.style.transform = `translateX(${screenX}px)`;
       }
     }
     if (this.draggingCard)
